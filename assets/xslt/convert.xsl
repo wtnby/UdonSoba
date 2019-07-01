@@ -16,7 +16,7 @@
 	<xsl:template match="chat-tab-list">
 
 		<TABLE border="1">
-			<tr> <th>tab</th> <th>name</th> <th>image</th> <th>message</th> <th>time</th> </tr>
+			<tr> <th>tab</th> <th>name</th> <th>image</th> <th>message</th> <th>timestamp</th> </tr>
 			<xsl:apply-templates select="chat-tab/chat">
 					<xsl:sort select="@timestamp" data-type="number" order="ascending"/>
 			</xsl:apply-templates>

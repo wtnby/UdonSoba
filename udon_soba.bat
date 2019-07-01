@@ -1,6 +1,7 @@
 :setEnvironment
 echo off
 setlocal enabledelayedexpansion
+echo 環境変数の設定完了
 :tempFolderDelete
 if exist .\temporary\*.* (
 	del /Q .\temporary
@@ -20,10 +21,10 @@ for /f %%a in (.\input\chat-tab.txt) do (
 	set /A n=n+1
 	set tabname[!n!]=%%a
 )
-echo %n%
-for /l %%b in (0,1,%n%-1) do ( echo !tabname[%%b]!)
+set /a tabnum=n+1
+echo タブ数=%tabnum%
+for /l %%b in (0,1,%n%) do ( echo !tabname[%%b]!)
 echo チャットタブ出力設定読み込み完了
-pause
 :Unzip
 .\assets\tools\7za.exe x .\input\*.zip -o.\temporary\
 echo 一時フォルダに解凍完了
