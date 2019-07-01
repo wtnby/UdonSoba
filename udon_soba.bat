@@ -1,4 +1,6 @@
+:setEnvironment
 echo off
+setlocal enabledelayedexpansion
 :tempFolderDelete
 if exist .\temporary\*.* (
 	del /Q .\temporary
@@ -12,6 +14,16 @@ if not %filenum%==1 (
 	goto NGExit
 )
 echo フォルダ事前チェック完了
+:LoadChatTabConfig
+set n=-1
+for /f %%a in (.\input\chat-tab.txt) do (
+	set /A n=n+1
+	set tabname[!n!]=%%a
+)
+echo %n%
+for /l %%b in (0,1,%n%-1) do ( echo !tabname[%%b]!)
+echo チャットタブ出力設定読み込み完了
+pause
 :Unzip
 .\assets\tools\7za.exe x .\input\*.zip -o.\temporary\
 echo 一時フォルダに解凍完了
@@ -41,7 +53,11 @@ copy .\temporary\*.gif %outputFolder%\img
 ren %outputFolder%\img\*.gif *.imagedata
 echo GIFのコピーと拡張子変更完了
 echo ファイルコピーと拡張子変更完了
-.\assets\tools\msxsl.exe .\temporary\chat.xml .\assets\xslt\convert.xsl -o %outputFolder%\converted_chatlog.html
+:convert_main
+for /l %%c in (0,1,%n%) do (
+	.\assets\tools\msxsl.exe .\temporary\chat.xml .\assets\xslt\convert.xsl tabname=!tabname[%%c]! -o %outputFolder%\converted_chatlog_!tabname[%%c]!.html 
+)
+.\assets\tools\msxsl.exe .\temporary\chat.xml .\assets\xslt\convert.xsl -o %outputFolder%\converted_chatlog.html 
 echo HTML出力完了
 :Deletezipdata
 del /Q .\temporary
