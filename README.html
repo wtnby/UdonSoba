@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="udon%E5%82%8D%EF%BC%88%E3%81%86%E3%81%A9%E3%82%93%E3%81%9D%E3%81%B0%EF%BC%89----%E3%83%A6%E3%83%89%E3%83%8A%E3%83%AA%E3%82%A6%E3%83%A0%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%B3%E3%83%B3%E3%83%90%E3%83%BC%E3%82%BF">Udon傍（うどんそば） -- ユドナリウムのログコンバータ</h1>
+<p><img src="assets/icon/うどんそば.png" alt="うどんそば" title="うどんそばアイコン"></p>
+<p>製作者：りょーさん</p>
+<h2 id="%E6%9B%B4%E6%96%B0%E5%B1%A5%E6%AD%B4">更新履歴</h2>
+<ul>
+<li>2019/7/1：Ver1.0、テキストファイルを読み、タブごとに出力する機能を追加</li>
+<li>2019/6/26：Ver0.2、Githubに登録。READMEを.mdファイルに変更</li>
+<li>2019/6/25：Ver0.1、初期作成</li>
+</ul>
+<h2 id="%E6%A6%82%E8%A6%81">概要</h2>
+<p>ユドナリウムのルームデータから、参照に適したHTMLファイルを生成するバッチファイルです。</p>
+<h2 id="%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E7%92%B0%E5%A2%83">動作確認環境</h2>
+<p>製作者は以下の環境にて動作確認を行っています。<br>
+以下の環境以外での動作は保証いたしません。</p>
+<ul>
+<li>OS:Windows10 64bit</li>
+<li>ブラウザ：Google Chrome</li>
+<li>ユドナリウム：Ver1.9.2によって作成されたルームデータ</li>
+</ul>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</h2>
+<ol>
+<li>「input」フォルダに、ルームデータのzipファイルを1つだけ格納してください。</li>
+<li>「input」フォルダに入っている「chat-tab.txt」に、出力したいタブのタブ名を1行ごとに記載してください。</li>
+<li>「udon_soba.bat」をダブルクリックして実行してください。</li>
+<li>コマンドプロンプトが開き、「続行するには何かキーを押してください . . .」と出力されたらキーを押してください。</li>
+<li>実行したフォルダに「output_(日時)」というフォルダができていると思うので、フォルダごと好きな場所に移動してください。  ※フォルダ名や、中のHTMLのファイル名を変更しても問題なく閲覧可能です。</li>
+</ol>
+<h2 id="%E5%86%85%E5%AE%B9%E7%89%A9">内容物</h2>
+<ul>
+<li>assetsフォルダ</li>
+</ul>
+<p>必要なツール、画像、XSLTファイルなどが格納されています。追加・削除・変更を行わないでください。</p>
+<ul>
+<li>inputフォルダ</li>
+</ul>
+<p>このフォルダに、生成したいログが入ったルームデータをzipごと格納してください。</p>
+<ul>
+<li>temporaryフォルダ</li>
+</ul>
+<p>ルームデータの一時展開用フォルダです。この中にフォルダやファイルを入れないでください。</p>
+<ul>
+<li>output_(日時)フォルダ</li>
+</ul>
+<p>実行後に生成されるHTMLファイルと画像フォルダです。
+「converted_chatlog.html」にはすべてのチャットを時刻でソートしたものが、
+「converted_chatlog_(タブ名).html」には指定したタブのみのチャットが出力されます。</p>
+<ul>
+<li>udon_soba.bat</li>
+</ul>
+<p>生成プログラム本体です。内容の変更を行わないでください。</p>
+<ul>
+<li>README.md</li>
+</ul>
+<p>Githubで表示するときのREADMEです。</p>
+<ul>
+<li>README.html</li>
+</ul>
+<p>このファイルです。</p>
+<h2 id="%E4%BD%BF%E7%94%A8%E4%B8%8A%E3%81%AE%E6%B3%A8%E6%84%8F">使用上の注意</h2>
+<ul>
+<li>例外処理がとても雑です。  ルームデータ以外を格納する、処理途中で中断して再実行するなどを行った場合に想定しない動作をする場合があります。  自力での対処が難しい方は、使用方法を守り、フォルダ構成がおかしくなったら元のコンバータを再取得してください。</li>
+</ul>
+<h2 id="%E7%8F%BE%E6%99%82%E7%82%B9%E3%81%A7%E6%B0%97%E3%81%A5%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E4%B8%8D%E5%85%B7%E5%90%88%E3%82%84%E4%BB%95%E6%A7%98">現時点で気づいている不具合や仕様</h2>
+<ul>
+<li>
+<p>ダイスボットは、初期画像(黒い人型)で表示されます。</p>
+</li>
+<li>
+<p>トランプやダイスをキャラクターやプレイヤーの画像として使用した場合、画像が表示されません。</p>
+</li>
+</ul>
+<h2 id="%E8%A1%8C%E3%81%84%E3%81%9F%E3%81%84%E6%94%B9%E4%BF%AE%E9%A0%85%E7%9B%AE">行いたい改修項目</h2>
+<ul>
+<li>CSS対応</li>
+<li>スマホも想定したデフォルトCSSの作成</li>
+<li>ダイスボット使用時のアイコンをダイスに変更</li>
+<li>トランプ・ダイスを使用したときの画像対応</li>
+<li>日時のHH:MM:SS表示</li>
+<li>Typescript+HTML+CC形式にしてどこかのサイトで公開</li>
+</ul>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2">使用しているソフトウェア</h2>
+<p>以下のソフトウェアを使用しています。</p>
+<ul>
+<li>7-Zip(https://sevenzip.osdn.jp/)</li>
+<li>msxsl.exe(https://www.microsoft.com/en-us/download/details.aspx?id=21714)</li>
+</ul>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E7%B4%A0%E6%9D%90">使用している素材</h2>
+<p>ユドナリウムと同様に、以下を素材として使用しています。</p>
+<ul>
+<li>©無料素材倶楽部 (http://sozai.7gates.net/)</li>
+<li>©Ｒド (http://www.geocities.co.jp/Milano-Cat/3319/)</li>
+<li>©きまぐれアフター (http://www5d.biglobe.ne.jp/~gakai/)</li>
+<li>©鍛冶屋黒胡椒 (https://www15.atwiki.jp/smith_blp/pages/1.html)</li>
+<li>©Material.io (https://material.io/tools/icons/)</li>
+</ul>
+<h2 id="%E3%81%8A%E3%81%BE%E3%81%91">おまけ</h2>
+<ul>
+<li>
+<p>使用した際に、製作者のTwitter(@NktAts)に連絡をくれるととても喜びます。</p>
+</li>
+<li>
+<p>少し詳しい人が見れば、各所に豪快な仕様が見られると思います。（画像の扱いとか）  全ては製作者の技術力が拙いためです。誰か助けてください。</p>
+</li>
+</ul>
+<h2 id="%E9%80%A3%E7%B5%A1%E5%85%88">連絡先</h2>
+<p>お問い合わせ・要望・不具合報告・改善アドバイス・感想などは、以下のいずれかの手段でご連絡ください。</p>
+<ul>
+<li>製作者のTwitterアカウント(@NktAts)にリプライやDM</li>
+<li>Github(https://github.com/NktAts/UdonariumLogConverter)にissueとして投稿</li>
+</ul>
+<p>(以上)</p>
+
+</body>
+</html>
