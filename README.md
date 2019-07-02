@@ -4,8 +4,11 @@
 
 製作者：りょーさん
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/NktAts/UdonSoba/blob/master/LICENSE)
+
 ## 更新履歴
 
+* 2019/7/2：Ver1.1、README更新、ライセンスに関するファイルを追加
 * 2019/7/1：Ver1.0、テキストファイルを読み、タブごとに出力する機能を追加
 * 2019/6/26：Ver0.2、Githubに登録。READMEを.mdファイルに変更
 * 2019/6/25：Ver0.1、初期作成  
@@ -53,6 +56,10 @@
 
 生成プログラム本体です。内容の変更を行わないでください。
 
+* LICENSE
+
+ライセンスについて記載されたファイルです。テキストエディタで参照できます。
+
 * README.md
 
 Githubで表示するときのREADMEです。
@@ -71,12 +78,12 @@ Githubで表示するときのREADMEです。
 
 ## 行いたい改修項目
 
-* CSS対応
+* CSSカスタマイズ対応（キャラごとの文字色変更対応、表の形を変更など含む）
 * スマホも想定したデフォルトCSSの作成
 * ダイスボット使用時のアイコンをダイスに変更
 * トランプ・ダイスを使用したときの画像対応
 * 日時のHH:MM:SS表示
-* Typescript+HTML+CC形式にしてどこかのサイトで公開
+* Typescript+HTML+CSS形式にしてどこかのサイトで公開
 
 ## 使用しているソフトウェア
 以下のソフトウェアを使用しています。
@@ -106,5 +113,8 @@ Githubで表示するときのREADMEです。
 * 製作者のTwitterアカウント(@NktAts)にリプライやDM
 * Github(https://github.com/NktAts/UdonariumLogConverter)にissueとして投稿
 
+## License
+
+[MIT License](https://github.com/NktAts/UdonSoba/blob/master/LICENSE)
 
 (以上)
