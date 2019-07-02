@@ -16,6 +16,8 @@
 ## 概要
 ユドナリウムのルームデータから、参照に適したHTMLファイルを生成するバッチファイルです。  
 
+![出力サンプル](assets/icon/sample_output.png "うどんそば出力サンプル")
+
 ## 動作確認環境
 製作者は以下の環境にて動作確認を行っています。  
 以下の環境以外での動作は保証いたしません。  
@@ -111,7 +113,7 @@ Githubで表示するときのREADMEです。
 お問い合わせ・要望・不具合報告・改善アドバイス・感想などは、以下のいずれかの手段でご連絡ください。
 
 * 製作者のTwitterアカウント(@NktAts)にリプライやDM
-* Github(https://github.com/NktAts/UdonariumLogConverter)にissueとして投稿
+* Github(https://github.com/NktAts/UdonSoba)にissueとして投稿
 
 ## License
 
