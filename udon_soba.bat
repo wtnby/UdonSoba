@@ -1,20 +1,21 @@
 :setEnvironment
 echo off
 setlocal enabledelayedexpansion
-echo ŠÂ‹«•Ï”‚Ìİ’èŠ®—¹
+chcp 65001
+echo ç’°å¢ƒå¤‰æ•°ã®è¨­å®šå®Œäº†
 :tempFolderDelete
 if exist .\temporary\*.* (
 	del /Q .\temporary
-	echo c—¯ƒtƒ@ƒCƒ‹íœŠ®—¹
+	echo æ®‹ç•™ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤å®Œäº†
 )
 :InputCheck
 set filenum=0
 for %%F in (.\input\*.zip) do (set /a filenum=filenum+1)
 if not %filenum%==1 (
-	echo Error01:inputƒtƒHƒ‹ƒ_‚É‚Íƒ‹[ƒ€ƒf[ƒ^‚Ìzipƒtƒ@ƒCƒ‹‚ğ1‚Â‚¾‚¯“ü‚ê‚Ä‚­‚¾‚³‚¢
+	echo Error01:inputãƒ•ã‚©ãƒ«ãƒ€ã«ã¯ãƒ«ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã®zipãƒ•ã‚¡ã‚¤ãƒ«ã‚’1ã¤ã ã‘å…¥ã‚Œã¦ãã ã•ã„
 	goto NGExit
 )
-echo ƒtƒHƒ‹ƒ_–‘Oƒ`ƒFƒbƒNŠ®—¹
+echo ãƒ•ã‚©ãƒ«ãƒ€äº‹å‰ãƒã‚§ãƒƒã‚¯å®Œäº†
 :LoadChatTabConfig
 set n=-1
 for /f %%a in (.\input\chat-tab.txt) do (
@@ -22,15 +23,15 @@ for /f %%a in (.\input\chat-tab.txt) do (
 	set tabname[!n!]=%%a
 )
 set /a tabnum=n+1
-echo ƒ^ƒu”=%tabnum%
+echo ã‚¿ãƒ–æ•°=%tabnum%
 for /l %%b in (0,1,%n%) do ( echo !tabname[%%b]!)
-echo ƒ`ƒƒƒbƒgƒ^ƒuo—Íİ’è“Ç‚İ‚İŠ®—¹
+echo ãƒãƒ£ãƒƒãƒˆã‚¿ãƒ–å‡ºåŠ›è¨­å®šèª­ã¿è¾¼ã¿å®Œäº†
 :Unzip
 .\assets\tools\7za.exe x .\input\*.zip -o.\temporary\
-echo ˆêƒtƒHƒ‹ƒ_‚É‰ğ“€Š®—¹
+echo ä¸€æ™‚ãƒ•ã‚©ãƒ«ãƒ€ã«è§£å‡å®Œäº†
 :DefaultCopy
 copy .\assets\images\ .\temporary
-echo ƒfƒtƒHƒ‹ƒg‰æ‘œƒRƒs[Š®—¹
+echo ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆç”»åƒã‚³ãƒ”ãƒ¼å®Œäº†
 :DefineOutputFolder
 set time_tmp=%time: =0%
 set now=%date:/=%%time_tmp:~0,2%%time_tmp:~3,2%%time_tmp:~6,2%
@@ -38,37 +39,41 @@ set outputFolder=.\output_%now%
 echo %outputFolder%
 mkdir %outputFolder%
 mkdir %outputFolder%\img
-echo o—ÍƒtƒHƒ‹ƒ_¶¬Š®—¹
+echo å‡ºåŠ›ãƒ•ã‚©ãƒ«ãƒ€ç”Ÿæˆå®Œäº†
+
+:CopyNeedFiles
+dir /b .\temporary\ | findstr ".gif .png .jpg .jpeg .jpe" > .\temporary\UdonSobaImageList.txt
+for /f %%a in (.\temporary\UdonSobaImageList.txt) do (
+    findstr %%~na .\temporary\chat.xml > nul
+    echo %%~na
+    if !errorlevel!==0 (
+        copy .\temporary\%%a .\%outputFolder%\img
+	)
+)
+echo ä½¿ç”¨ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼å®Œäº†
+
 :ChangeExtension
-copy .\temporary\*.jpg %outputFolder%\img
 ren %outputFolder%\img\*.jpg *.imagedata
-copy .\temporary\*.jpeg %outputFolder%\img
 ren %outputFolder%\img\*.jpeg *.imagedata
-copy .\temporary\*.jpe %outputFolder%\img
 ren %outputFolder%\img\*.jpe *.imagedata
-echo JPG‚ÌƒRƒs[‚ÆŠg’£q•ÏXŠ®—¹
-copy .\temporary\*.png %outputFolder%\img
 ren %outputFolder%\img\*.png *.imagedata
-echo PNG‚ÌƒRƒs[‚ÆŠg’£q•ÏXŠ®—¹
-copy .\temporary\*.gif %outputFolder%\img
 ren %outputFolder%\img\*.gif *.imagedata
-echo GIF‚ÌƒRƒs[‚ÆŠg’£q•ÏXŠ®—¹
-echo ƒtƒ@ƒCƒ‹ƒRƒs[‚ÆŠg’£q•ÏXŠ®—¹
+echo æ‹¡å¼µå­å¤‰æ›´å®Œäº†
 :convert_main
 for /l %%c in (0,1,%n%) do (
 	.\assets\tools\msxsl.exe .\temporary\chat.xml .\assets\xslt\convert.xsl tabname=!tabname[%%c]! -o %outputFolder%\converted_chatlog_!tabname[%%c]!.html 
 )
 .\assets\tools\msxsl.exe .\temporary\chat.xml .\assets\xslt\convert.xsl -o %outputFolder%\converted_chatlog.html 
-echo HTMLo—ÍŠ®—¹
+echo HTMLå‡ºåŠ›å®Œäº†
 :Deletezipdata
 del /Q .\temporary
-echo ˆêƒtƒHƒ‹ƒ_“àƒtƒ@ƒCƒ‹íœŠ®—¹
+echo ä¸€æ™‚ãƒ•ã‚©ãƒ«ãƒ€å†…ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤å®Œäº†
 :OKExit
-echo ³íI—¹
+echo æ­£å¸¸çµ‚äº†
 pause
 exit /b 0
 :NGExit
-echo ˆÙíI—¹
+echo ç•°å¸¸çµ‚äº†
 pause
 exit /b 1
 
