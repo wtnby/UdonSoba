@@ -1,0 +1,19 @@
+/* ユーザID毎に発言のスタイルを変更するCSSのサンプル */
+td {font-size:xx-small;}
+
+.System-BCDice 
+{ color: #333333; font-size:medium; }
+
+#user1,
+.abcdefgh, .ijklmno 
+{ color:#0d3964;
+  font-size:medium; 
+  word-wrap: break-word;
+  word-break: break-all;}
+
+#uesr2,
+.pqrstuvw
+{ color:#285a0f;
+    font-size:medium; 
+    word-wrap: break-word;
+    word-break: break-all;}
