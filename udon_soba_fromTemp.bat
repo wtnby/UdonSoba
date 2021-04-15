@@ -33,6 +33,7 @@ for /f %%a in (.\temporary\UdonSobaImageList.txt) do (
         copy .\temporary\%%a .\%outputFolder%\img
 	)
 )
+copy .\temporary\chat.xml .\%outputFolder%
 echo 使用ファイルのコピー完了
 
 :ChangeExtension
