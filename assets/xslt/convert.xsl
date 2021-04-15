@@ -6,6 +6,7 @@
 
 	<xsl:template match="/">
 	  <HTML>
+	    <HEAD><link rel="stylesheet" type="text/css" href="../iconlog.css" /></HEAD>
 	  	<BODY>
 	  		<h2><xsl:value-of select="$imgbasepath" /></h2>
 	  		<xsl:apply-templates/>
@@ -16,7 +17,7 @@
 	<xsl:template match="chat-tab-list">
 
 		<TABLE border="1">
-			<tr> <th>tab</th> <th>name</th> <th>image</th> <th>message</th> <th>timestamp</th> </tr>
+			<tr> <th>tab</th> <th>name</th> <th>image</th> <th>message</th> <th>timestamp</th>  <th>from</th> </tr>
 			<xsl:apply-templates select="chat-tab/chat">
 					<xsl:sort select="@timestamp" data-type="number" order="ascending"/>
 			</xsl:apply-templates>
@@ -26,8 +27,7 @@
 	<xsl:template match="chat-tab/chat">
 		<xsl:choose>
 			<xsl:when test="../@name=$tabname or $tabname='+z4%H3(Ve84m'">
-				<tr> 
-					<td><xsl:value-of select="../@name"/></td>
+				<tr><td><xsl:value-of select="../@name"/></td>
 					<td><xsl:value-of select="@name"/></td> 
 					<td>
 						<img width="50px"> 
@@ -39,8 +39,18 @@
 							</xsl:attribute>
 						</img>
 					</td> 
-					<td><xsl:value-of select="."/></td>
+					<td>
+						<xsl:attribute name="class">
+							<xsl:value-of select="@from"/>
+						</xsl:attribute>
+						<xsl:value-of select="."/>
+					</td>
 					<td><xsl:value-of select="@timestamp"/></td> 
+					<td>
+						<xsl:attribute name="class">
+							<xsl:value-of select="@from"/>
+						</xsl:attribute>
+						<xsl:value-of select="@from"/></td> 
 				</tr>
 			</xsl:when>
 		</xsl:choose>
